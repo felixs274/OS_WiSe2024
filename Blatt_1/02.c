@@ -9,11 +9,12 @@
 int sum; // Data shared by the Thread(s)
 
 void *runner(void *param){ // Threads call this function
+    printf("Thread created\n");
     int i, upper = atoi(param);
     sum = 0;
 
     for(i = 1; i <= upper; i++){
-        sum += 1;
+        sum += i;
     }
 
     pthread_exit(0);
@@ -38,8 +39,10 @@ int main(int argc, char *argv[]){
     pthread_attr_init(&attr);
     // Create the Thread
     pthread_create(&tid, &attr, runner, argv[1]);
+    printf("After Thread create\n");
     // Wait fot Thread to exit
     pthread_join(tid, NULL);
+    printf("Thread finished\n");
 
     printf("sum = %d\n", sum);
 
