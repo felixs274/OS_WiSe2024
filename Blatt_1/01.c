@@ -1,3 +1,7 @@
+// Blatt 1
+// Aufgabe 1
+// Prozesse
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
